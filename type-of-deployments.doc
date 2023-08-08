@@ -1,0 +1,59 @@
+Canary Deployment:
+The process typically involves the following steps:
+
+Deploy the new version of the application to a small percentage of users or servers.
+Monitor the canary group for any performance issues, errors, or other anomalies.
+If the canary group experiences problems, the deployment can be halted or rolled back before affecting the entire user base.
+If the canary group experiences no significant issues, the new version can be gradually rolled out to more users or servers until the entire deployment is complete.
+-----------------------------------------------
+Rolling Deployment:
+Rolling deployment is a strategy where a new version of an application is deployed in a staggered or sequential manner across different segments of the infrastructure. The goal is to ensure that the application remains available and responsive throughout the deployment process.
+
+The process typically involves the following steps:
+
+Deploy the new version of the application to a subset of servers or instances.
+Once the new version is verified to be stable on the first subset, deploy it to the next subset.
+Continue this process until the new version has been deployed to all servers or instances.
+If any issues are detected during the deployment, they can be addressed before moving on to the next subset.
+-------------------------------------------------
+
+Blue-Green Deployment is another deployment strategy used in software development and deployment processes. It is designed to minimize downtime and reduce the risk associated with deploying new versions of an application. The concept is often associated with the colors blue and green, which represent two different environments or versions of the application.
+
+In a Blue-Green Deployment, you have two separate environments:
+
+Blue Environment (Current Production):
+---------------
+This is the currently active and running version of your application that is serving live traffic to users.
+Users interact with and use the blue environment without being aware of any changes happening behind the scenes.
+Green Environment (New Version or Update):
+
+This is the new version of your application that you want to deploy.
+The green environment is an exact replica of the blue environment, except it contains the new version of the application code.
+The green environment is set up and configured in parallel to the blue environment.
+The deployment process follows these general steps:
+
+Deploy and Test in Green Environment:
+-----------------
+Deploy the new version of your application to the green environment.
+Run comprehensive tests, including functional, performance, and compatibility tests, in the green environment to ensure that the new version behaves as expected.
+Switch Traffic:
+
+Once the green environment is thoroughly tested and verified, you switch the traffic from the blue environment to the green environment.
+Users are now redirected to the green environment, which is hosting the new version of the application.
+Validation and Rollback:
+
+Monitor the green environment and validate that the new version is performing well and meeting user expectations.
+If any issues or unexpected behavior arises, you can quickly switch the traffic back to the blue environment to perform a rollback.
+Advantages of Blue-Green Deployment:
+
+Minimized Downtime: Users experience little to no downtime during the deployment process since the switch between environments is relatively fast.
+
+Reduced Risk: By keeping the blue environment untouched during the deployment process, you can easily revert to a known stable version in case of issues.
+
+Quick Rollback: If the green environment experiences problems, you can immediately switch back to the blue environment, ensuring a rapid recovery.
+
+Easy Testing: Testing is conducted in a separate environment, ensuring that the new version is thoroughly evaluated before exposing it to the production environment.
+
+Scalability Testing: You can perform scalability and performance testing on the green environment without affecting the blue environment.
+
+Blue-Green Deployment is a powerful strategy for achieving reliable and seamless application updates. It can be implemented using various tools and platforms, including cloud providers' infrastructure, container orchestration tools like Kubernetes, and dedicated deployment tools.
